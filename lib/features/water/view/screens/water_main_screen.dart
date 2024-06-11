@@ -24,7 +24,6 @@ class _WaterScreen extends State<WaterScreen> {
         padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         child: ScrollColumnExpandable(
           children: [
-            Gap(context.getTopHeight()),
             rowElement(
               rowTitle: "الرقم : ",
               hintText: "أدخل الرقم او الكود",
