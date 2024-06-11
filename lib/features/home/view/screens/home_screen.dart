@@ -14,7 +14,7 @@ import 'package:telecom_project/features/core/view/screens/background_screens.da
 import 'package:telecom_project/features/core/view/widgets/confirm_dialog.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/screens/scrollable_column.dart';
-
+import '../widgets/progress_indicator.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -30,8 +30,8 @@ class HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.symmetric(horizontal: 28.0.w),
         child: ScrollColumnExpandable(
           children: [
-            Gap(context.getTopHeight()),
-            // TODO : Build Circal progress indicator
+           // Gap(context.getTopHeight()),
+            const MyProgressIndicator(currentIncome: 5000,maxSalary: 7000,),
             const Spacer(),
             rowComponent(isBlue: true, categoryDetails: firstRowDetials),
             myDivider(),
