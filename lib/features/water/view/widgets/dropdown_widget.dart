@@ -1,5 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:telecom_project/config/helpers/material_color_converter.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 
 class DropDownWidget extends StatefulWidget {
@@ -20,9 +22,9 @@ class _DropDownWidgetState extends State<DropDownWidget> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField2<String>(
-      menuItemStyleData: const MenuItemStyleData(
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
-        // customHeights: _getCustomItemsHeights(widget.items.length),
+      menuItemStyleData: MenuItemStyleData(
+        padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+        customHeights: itemsHeights(widget.items.length),
       ),
       decoration: InputDecoration(
         alignLabelWithHint: false,
