@@ -20,6 +20,12 @@ class TextStyled {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle font20DarkBlue700 = TextStyle(
+    color: HexColor("#282561"),
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle font16DarkBlue700 = TextStyle(
     color: HexColor("#282561"),
     fontSize: 16,

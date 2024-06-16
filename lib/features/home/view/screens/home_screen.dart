@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:pair/pair.dart';
@@ -30,8 +28,7 @@ class HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.symmetric(horizontal: 28.0.w),
         child: ScrollColumnExpandable(
           children: [
-           // Gap(context.getTopHeight()),
-            const MyProgressIndicator(currentIncome: 5000,maxSalary: 7000,),
+            const MyProgressIndicator(currentIncome: 648972,maxSalary: 1000000,),
             const Spacer(),
             rowComponent(isBlue: true, categoryDetails: firstRowDetials),
             myDivider(),
