@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:pair/pair.dart';
-import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:telecom_project/config/helpers/extensions.dart';
-import 'package:telecom_project/config/helpers/hex_color.dart';
 import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/view/screens/background_screens.dart';
+import 'package:telecom_project/features/core/data/local/category_data.dart';
+import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/confirm_dialog.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/screens/scrollable_column.dart';
+import 'package:telecom_project/features/core/view/widgets/main_divider.dart';
+import 'package:tuple/tuple.dart';
 import '../widgets/progress_indicator.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -28,15 +29,30 @@ class HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.symmetric(horizontal: 28.0.w),
         child: ScrollColumnExpandable(
           children: [
-            const MyProgressIndicator(currentIncome: 648972,maxSalary: 1000000,),
+            const MyProgressIndicator(
+              currentIncome: 648972,
+              maxSalary: 1000000,
+            ),
             const Spacer(),
-            rowComponent(isBlue: true, categoryDetails: firstRowDetials),
-            myDivider(),
-            rowComponent(categoryDetails: secondRowDetials),
+            rowComponent(
+              isBlue: true,
+              categoryDetails: categoryData.sublist(0, 3),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4.h),
+              child: myDivider(),
+            ),
+            rowComponent(
+              categoryDetails: categoryData.sublist(3, 6),
+            ),
             Gap(8.h),
-            rowComponent(categoryDetails: thirdRowDetials),
+            rowComponent(
+              categoryDetails: categoryData.sublist(6, 9),
+            ),
             Gap(8.h),
-            rowComponent(categoryDetails: fourthRowDetials),
+            rowComponent(
+              categoryDetails: categoryData.sublist(9, 11),
+            ),
             const Spacer(),
             MainButton(
               height: 56.h,
@@ -70,7 +86,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   Row rowComponent({
     bool isBlue = false,
-    required List<Pair<String, Pair<String, String>>> categoryDetails,
+    required List<Tuple3<String, String, String>> categoryDetails,
     double smallGap = 0,
   }) {
     bool temp = false;
@@ -85,11 +101,12 @@ class HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(left: 8.w),
             child: InkWell(
               onTap: () {
-                context.pushNamed(categoryDetails[index].key);
+                context.pushNamed(
+                    categoryDetails[index].item1); // item1 is the screen path
               },
               child: categoryContainer(
-                iconPath: categoryDetails[index].value.value,
-                title: categoryDetails[index].value.key,
+                title: categoryDetails[index].item2,
+                iconPath: categoryDetails[index].item3, // item3 is the iconPath
                 isBlue: isBlue,
                 context: context,
               ),
@@ -98,35 +115,16 @@ class HomeScreenState extends State<HomeScreen> {
         }
         return InkWell(
           onTap: () {
-            context.pushNamed(categoryDetails[index].key);
+            context.pushNamed(categoryDetails[index].item1);
           },
           child: categoryContainer(
-            iconPath: categoryDetails[index].value.value,
-            title: categoryDetails[index].value.key,
+            title: categoryDetails[index].item2,
+            iconPath: categoryDetails[index].item3,
             isBlue: isBlue,
             context: context,
           ),
         );
       }),
-    );
-  }
-
-  // # TODO : fix this circular with another one 
-  SimpleCircularProgressBar circalarProgressBar() {
-    return SimpleCircularProgressBar(
-      animationDuration: 2,
-      backColor: HexColor("#52B7DC").withOpacity(.7),
-      backStrokeWidth: 12,
-      fullProgressColor: KTheme.mainColor,
-      mergeMode: true,
-      progressColors: [
-        KTheme.mainColor,
-        KTheme.secondColor,
-        KTheme.secondColor,
-      ],
-      onGetText: (double value) {
-        return Text('${value.toInt()}%');
-      },
     );
   }
 }
@@ -170,83 +168,3 @@ Widget categoryContainer({
   );
 }
 
-List<Pair<String, Pair<String, String>>> firstRowDetials = const [
-  Pair(
-    Routes.adslScreen,
-    Pair("الاستعلامات", "assets/images/question_mark.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("بياني المالي", "assets/images/istbian.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("العمليات", "assets/images/person.png"),
-  ),
-];
-
-List<Pair<String, Pair<String, String>>> secondRowDetials = const [
-  Pair(
-    Routes.adslScreen,
-    Pair("ADSL", "assets/images/adsl.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("أرضي", "assets/images/phone.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("موبايل", "assets/images/mobile.png"),
-  ),
-];
-
-List<Pair<String, Pair<String, String>>> thirdRowDetials = const [
-  Pair(
-    Routes.waterScreen,
-    Pair("مياه", "assets/images/water.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("كازية", "assets/images/bag.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("كهرباء", "assets/images/electric.png"),
-  ),
-];
-
-List<Pair<String, Pair<String, String>>> fourthRowDetials = const [
-  Pair(
-    Routes.adslScreen,
-    Pair("دفعة", "assets/images/cash.png"),
-  ),
-  Pair(
-    Routes.adslScreen,
-    Pair("شحن تطبيقات", "assets/images/gamejoy.png"),
-  ),
-];
-
-List<String> titleCategory = [
-  "الاستعلامات",
-  "بياني المالي",
-  "العمليات",
-  "ADSL",
-  "أرضي",
-  "موبايل",
-  "مياه",
-  "كازية",
-  "كهرباء",
-  "دفعة",
-  "شحن تطبيقات",
-];
-
-Widget myDivider() {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 4),
-    child: Container(
-      color: HexColor("#CDCDCD"),
-      height: 1,
-      width: double.infinity,
-    ),
-  );
-}

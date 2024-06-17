@@ -2,9 +2,8 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:telecom_project/config/helpers/extensions.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
-import 'package:telecom_project/features/core/view/screens/background_screens.dart';
+import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/screens/scrollable_column.dart';
 import 'package:telecom_project/features/water/view/widgets/dropdown_widget.dart';

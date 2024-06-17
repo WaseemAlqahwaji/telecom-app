@@ -34,6 +34,10 @@ extension Sizing on BuildContext {
     return MediaQuery.of(this).viewPadding.top + AppBar().preferredSize.height;
   }
 
+  double getStatusBarHeight() {
+    return MediaQuery.of(this).viewPadding.top;
+  }
+
   double getScreenWidth() {
     return MediaQuery.of(this).size.width;
   }

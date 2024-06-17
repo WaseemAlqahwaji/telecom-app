@@ -5,7 +5,10 @@ import 'package:telecom_project/features/login/view/screens/login_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
 
 class AppRouter {
+  // # TODO While user press back button it's not updating the currentScreenName, so it will make bug with drawer
+  static String? currnetScreenName;
   Route generateRoute(RouteSettings settings) {
+    currnetScreenName = settings.name;
     switch (settings.name) {
       case 'loginScreen':
         return MaterialPageRoute(

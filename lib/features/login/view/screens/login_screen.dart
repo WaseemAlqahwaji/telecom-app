@@ -6,7 +6,7 @@ import 'package:telecom_project/config/helpers/hex_color.dart';
 import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/view/screens/background_screens.dart';
+import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 
 class LoginScreen extends StatefulWidget {

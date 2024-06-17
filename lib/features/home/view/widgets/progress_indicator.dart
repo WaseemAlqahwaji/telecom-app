@@ -23,8 +23,6 @@ class _ProgressIndicator extends State<MyProgressIndicator>
   late Animation<double> _animation;
   late Animation<double> _valueAnimation;
   late Animation<double> _percentageAnimation;
-  // # TODO fix number precent 
-
   
   int getIncomePercentage(int income, int currentIncome) {
     double percent;
