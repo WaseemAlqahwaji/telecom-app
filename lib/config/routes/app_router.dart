@@ -8,6 +8,7 @@ import 'package:telecom_project/features/login/view/screens/login_screen.dart';
 import 'package:telecom_project/features/home_phone/view/screens/home_phone_screen.dart';
 import 'package:telecom_project/features/opration/view/cubit/opration_cubit.dart';
 import 'package:telecom_project/features/opration/view/screens/opration_screen.dart';
+import 'package:telecom_project/features/paid/view/paid_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
 
 class AppRouter {
@@ -31,6 +32,10 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
+        );
+      case Routes.paidScreen:
+        return MaterialPageRoute(
+          builder: (_) => const PaidScreen(),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(

@@ -7,4 +7,5 @@ class Routes {
   static const String questionnairesScreen = 'questionnairesScreen';
   static const String homePhoneScreen = 'homePhoneScreen';
   static const String oprationScreen = 'oprationScreen';
+  static const String paidScreen = 'paidScreen';
 }
