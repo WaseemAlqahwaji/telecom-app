@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/features/adsl/view/screens/adsl_main_screen.dart';
 import 'package:telecom_project/features/electric/view/screens/electric_screen.dart';
 import 'package:telecom_project/features/home/view/screens/home_screen.dart';
 import 'package:telecom_project/features/login/view/screens/login_screen.dart';
 import 'package:telecom_project/features/home_phone/view/screens/home_phone_screen.dart';
+import 'package:telecom_project/features/opration/view/cubit/opration_cubit.dart';
 import 'package:telecom_project/features/opration/view/screens/opration_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
 
@@ -52,7 +54,10 @@ class AppRouter {
         );
       case Routes.oprationScreen:
         return MaterialPageRoute(
-          builder: (_) => const OprationScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => OprationCubit(),
+            child: const OprationScreen(),
+          ),
         );
       default:
         return MaterialPageRoute(
