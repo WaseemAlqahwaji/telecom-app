@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 
-class DropDownWidget extends StatefulWidget {
+class TextFormDropDownWidget extends StatefulWidget {
   final List<String> items;
   final String hintText;
-  const DropDownWidget({
+  const TextFormDropDownWidget({
     super.key,
     required this.items,
     required this.hintText,
   });
 
   @override
-  State<DropDownWidget> createState() => _DropDownWidgetState();
+  State<TextFormDropDownWidget> createState() => _TextFormDropDownWidgetState();
 }
 
-class _DropDownWidgetState extends State<DropDownWidget> {
+class _TextFormDropDownWidgetState extends State<TextFormDropDownWidget> {
   String? selectedItem;
   @override
   Widget build(BuildContext context) {

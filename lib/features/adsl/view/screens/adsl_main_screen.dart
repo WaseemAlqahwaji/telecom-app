@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
-import 'package:telecom_project/features/core/view/screens/scrollable_column.dart';
+import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 
 class AdslMainScreen extends StatefulWidget {
   const AdslMainScreen({super.key});
@@ -37,7 +37,7 @@ class _AdslMainScreenState extends State<AdslMainScreen> {
             ),
             Gap(24.h),
             rowElement(
-              rowTitle: ": Static IP",
+              rowTitle: "Static IP :",
               hintText: "اختياري",
             ),
             Gap(24.h),

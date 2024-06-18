@@ -3,5 +3,8 @@ class Routes {
   static const String homeScreen = 'homeScreen';
   static const String adslScreen = 'adslScreen';
   static const String waterScreen = 'waterScreen';
-
+  static const String electicScreen = 'electicScreen';
+  static const String questionnairesScreen = 'questionnairesScreen';
+  static const String homePhoneScreen = 'homePhoneScreen';
+  static const String oprationScreen = 'oprationScreen';
 }

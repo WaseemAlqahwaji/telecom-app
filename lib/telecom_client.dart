@@ -20,7 +20,7 @@ class TelecomApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         themeMode: ThemeMode.dark,
-        onGenerateRoute: appRouter.generateRoute,
+        onGenerateRoute: AppRouter.generateRoute,
         initialRoute: Routes.homeScreen,
         theme: KTheme.ligthTheme(),
         debugShowCheckedModeBanner: false,

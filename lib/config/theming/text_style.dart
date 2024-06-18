@@ -20,6 +20,12 @@ class TextStyled {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle font14grey300 = TextStyle(
+    color: HexColor("#696969"),
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
+
   static TextStyle font20DarkBlue700 = TextStyle(
     color: HexColor("#282561"),
     fontSize: 20,
@@ -35,6 +41,12 @@ class TextStyled {
   static TextStyle font16Black400 = const TextStyle(
     color: Colors.black,
     fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+    static TextStyle font12Black400 = const TextStyle(
+    color: Colors.black,
+    fontSize: 12,
     fontWeight: FontWeight.w400,
   );
 

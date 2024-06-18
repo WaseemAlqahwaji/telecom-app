@@ -6,14 +6,14 @@ import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
 import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 
-class WaterScreen extends StatefulWidget {
-  const WaterScreen({super.key});
+class ElectricScreen extends StatefulWidget {
+  const ElectricScreen({super.key});
 
   @override
-  State<WaterScreen> createState() => _WaterScreen();
+  State<ElectricScreen> createState() => _ElectricScreenState();
 }
 
-class _WaterScreen extends State<WaterScreen> {
+class _ElectricScreenState extends State<ElectricScreen> {
   @override
   Widget build(BuildContext context) {
     return CoreScreen(

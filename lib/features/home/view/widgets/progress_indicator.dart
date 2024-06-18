@@ -61,12 +61,6 @@ class _ProgressIndicator extends State<MyProgressIndicator>
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 180.w,

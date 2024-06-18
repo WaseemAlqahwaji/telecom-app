@@ -1,30 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/features/adsl/view/screens/adsl_main_screen.dart';
+import 'package:telecom_project/features/electric/view/screens/electric_screen.dart';
 import 'package:telecom_project/features/home/view/screens/home_screen.dart';
 import 'package:telecom_project/features/login/view/screens/login_screen.dart';
+import 'package:telecom_project/features/home_phone/view/screens/home_phone_screen.dart';
+import 'package:telecom_project/features/opration/view/screens/opration_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
 
 class AppRouter {
-  // # TODO While user press back button it's not updating the currentScreenName, so it will make bug with drawer
-  static String? currnetScreenName;
-  Route generateRoute(RouteSettings settings) {
-    currnetScreenName = settings.name;
+  // static String? currnetScreenName;
+  // static String? previousScreenName;
+  static Route generateRoute(RouteSettings settings) {
+    // if (settings.name != currnetScreenName &&
+    //     previousScreenName == Routes.homeScreen) {
+    //   if (settings.name == Routes.homeScreen) previousScreenName = null;
+    //   currnetScreenName = settings.name;
+    // } else {
+    //   previousScreenName = currnetScreenName;
+    //   currnetScreenName = settings.name;
+    // }
+
+    // print(
+    //     "------------------- current is : $currnetScreenName ----------------");
+    // print(
+    //     "------------------- previous is : $previousScreenName ----------------");
     switch (settings.name) {
-      case 'loginScreen':
+      case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
         );
-      case 'homeScreen':
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
         );
-      case 'adslScreen':
+      case Routes.adslScreen:
         return MaterialPageRoute(
           builder: (_) => const AdslMainScreen(),
         );
-        case 'waterScreen':
+      case Routes.waterScreen:
         return MaterialPageRoute(
           builder: (_) => const WaterScreen(),
+        );
+      case Routes.electicScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ElectricScreen(),
+        );
+      case Routes.homePhoneScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomePhoneScreen(),
+        );
+      case Routes.oprationScreen:
+        return MaterialPageRoute(
+          builder: (_) => const OprationScreen(),
         );
       default:
         return MaterialPageRoute(

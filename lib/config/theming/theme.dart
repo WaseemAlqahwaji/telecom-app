@@ -8,7 +8,16 @@ class KTheme {
   static Color secondColor = HexColor("#1D7291");
   static ThemeData ligthTheme() => ThemeData(
         checkboxTheme: CheckboxThemeData(
-          checkColor: MaterialStateProperty.all(Colors.white),
+          checkColor: WidgetStateProperty.all(Colors.white),
+        ),
+        tabBarTheme: TabBarTheme(
+          dividerHeight: 0,
+          indicatorColor: mainColor,
+          unselectedLabelColor: Colors.grey.withOpacity(.8),
+          labelColor: Colors.black,
+          labelPadding: EdgeInsets.zero,
+          indicatorSize: TabBarIndicatorSize.label,
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
         ),
         appBarTheme: const AppBarTheme(
           scrolledUnderElevation: 0,

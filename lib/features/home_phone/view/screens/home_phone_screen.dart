@@ -6,14 +6,14 @@ import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
 import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 
-class WaterScreen extends StatefulWidget {
-  const WaterScreen({super.key});
+class HomePhoneScreen extends StatefulWidget {
+  const HomePhoneScreen({super.key});
 
   @override
-  State<WaterScreen> createState() => _WaterScreen();
+  State<HomePhoneScreen> createState() => _HomePhoneScreenState();
 }
 
-class _WaterScreen extends State<WaterScreen> {
+class _HomePhoneScreenState extends State<HomePhoneScreen> {
   @override
   Widget build(BuildContext context) {
     return CoreScreen(
@@ -24,18 +24,6 @@ class _WaterScreen extends State<WaterScreen> {
             const MainTextFormComponent(
               title: "الرقم : ",
               hintText: "أدخل الرقم او الكود",
-            ),
-            Gap(24.h),
-            MainTextFormComponent(
-              title: "المحافظة : ",
-              hintText: "اختر المحافظة",
-              dropDownList: citiesName,
-              isDropDown: true,
-            ),
-            Gap(24.h),
-            const MainTextFormComponent(
-              title: "رقم الباركود :",
-              hintText: "ادخل رقم الباركود",
             ),
             Gap(24.h),
             const MainTextFormComponent(

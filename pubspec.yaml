@@ -38,6 +38,9 @@ dependencies:
   dropdown_button2: ^2.3.9
   syncfusion_flutter_gauges: ^25.2.7
   tuple: ^2.0.2
+  flutter_bloc: ^8.1.6
+  back_button_interceptor: ^7.0.3
+  expandable: ^5.0.1
 
 
 
