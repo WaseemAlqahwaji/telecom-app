@@ -5,7 +5,7 @@ import 'package:telecom_project/config/helpers/extensions.dart';
 import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/data/local/category_data.dart';
+import 'package:telecom_project/features/core/data/local/category_local_data.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/confirm_dialog.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
