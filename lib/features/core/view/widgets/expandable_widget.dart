@@ -56,11 +56,6 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
                     children: [
                       const Text("ADSL"),
                       Gap(5.w),
-                      // Image.asset(
-                      //   height: 21.h,
-                      //   width: 18.w,
-                      //   "assets/images/warning.png",
-                      // ),
                       Icon(
                         widget.icon,
                         color: widget.iconColor,
@@ -87,16 +82,16 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
             ],
           ),
           collapsed: const SizedBox.shrink(),
-          expanded: const Column(
-            textDirection: TextDirection.rtl,
+          expanded: Column(
             children: [
-              Align(
+              Gap(10.0.h),
+              const Align(
                 alignment: Alignment.centerRight,
                 child: Text(
                   "مرفوضة من قبل : الإدارة",
                 ),
               ),
-              Text(
+              const Text(
                 "لا بوجد رصيد كاف في حسابك",
               ),
             ],
