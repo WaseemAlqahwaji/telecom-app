@@ -10,12 +10,14 @@ class MainTextFormComponent extends StatefulWidget {
   final String? hintText;
   final bool? isDropDown;
   final List<String>? dropDownList;
+  final TextDirection? textDirection;
   const MainTextFormComponent({
     super.key,
     required this.title,
     this.hintText,
     this.isDropDown = false,
     this.dropDownList,
+    this.textDirection,
   });
 
   @override
@@ -42,6 +44,7 @@ class _MainTextFormComponentState extends State<MainTextFormComponent> {
             decoration: InputDecoration(
               hintText: widget.hintText,
             ),
+            textDirection: widget.textDirection,
           ),
           builder: (context) => TextFormDropDownWidget(
             hintText: widget.hintText!,

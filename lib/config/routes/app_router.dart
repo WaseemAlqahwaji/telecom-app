@@ -11,6 +11,7 @@ import 'package:telecom_project/features/opration/view/cubit/opration_cubit.dart
 import 'package:telecom_project/features/opration/view/screens/opration_screen.dart';
 import 'package:telecom_project/features/paid/view/paid_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
+import 'package:telecom_project/features/app_gems/view/screens/app_gem_screen.dart';
 
 class AppRouter {
   // static String? currnetScreenName;
@@ -68,6 +69,10 @@ class AppRouter {
             create: (context) => OprationCubit(),
             child: const OprationScreen(),
           ),
+        );
+      case Routes.appGemsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AppGemScreen(),
         );
       default:
         return MaterialPageRoute(
