@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:intl/intl.dart' as intl;
-import 'package:telecom_project/config/theming/theme.dart';
+import 'package:telecom_project/config/helpers/date_format.dart';
+import 'package:telecom_project/features/core/view/widgets/date_element.dart';
+import 'package:telecom_project/features/core/view/widgets/date_picker.dart';
 import 'package:telecom_project/features/core/view/widgets/expandable_widget.dart';
 import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 
@@ -44,24 +45,26 @@ class _FinancialScreenState extends State<FinancialScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  dateElement(
-                    onTap: () async {
-                      await myDatePicker(context).then((value) {
-                        if (value != null) formattedFromDate = value;
-                      });
-                      setState(() {});
-                    },
+                  DatePickerWidget(
                     dateTitle: "من",
                     date: formattedFromDate!,
-                  ),
-                  dateElement(
                     onTap: () async {
-                      await myDatePicker(context).then((value) {
-                        if (value != null) formattedToDate = value;
-                      });
-                      setState(() {});
+                      String? response = await myDatePicker(context);
+                      if (response != null) {
+                        formattedFromDate = response;
+                        setState(() {});
+                      }
                     },
+                  ),
+                  DatePickerWidget(
                     dateTitle: "إلى",
+                    onTap: () async {
+                      String? response = await myDatePicker(context);
+                      if (response != null) {
+                        formattedToDate = response;
+                        setState(() {});
+                      }
+                    },
                     date: formattedToDate!,
                   ),
                 ],
@@ -85,54 +88,6 @@ class _FinancialScreenState extends State<FinancialScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  Future<void> onDateTapped(
-    BuildContext context, {
-    required formattedDate,
-  }) async {}
-
-  Future<String?> myDatePicker(BuildContext context) async {
-    var response = await showDatePicker(
-      context: context,
-      firstDate: DateTime(2001),
-      lastDate: DateTime(2008),
-    );
-    if (response != null) return formatDate(response);
-    return null;
-  }
-
-  String formatDate(DateTime date) {
-    return intl.DateFormat.yMd().format(date);
-  }
-
-  Widget dateElement({
-    required String dateTitle,
-    required String date,
-    required void Function()? onTap,
-  }) {
-    return Row(
-      children: [
-        Text(
-          dateTitle,
-        ),
-        Gap(10.0.w),
-        InkWell(
-          onTap: onTap,
-          child: Container(
-            padding: EdgeInsets.all(10.0.h),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(color: KTheme.mainColor),
-            ),
-            child: Text(
-              date,
-              textDirection: TextDirection.ltr,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
