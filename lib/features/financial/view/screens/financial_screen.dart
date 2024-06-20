@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:telecom_project/config/theming/theme.dart';
+import 'package:telecom_project/features/core/view/widgets/expandable_widget.dart';
 import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 
 class FinancialScreen extends StatefulWidget {
@@ -65,6 +67,21 @@ class _FinancialScreenState extends State<FinancialScreen> {
                 ],
               ),
             ),
+            Gap(30.h),
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.w),
+                child: ListView.separated(
+                  itemBuilder: (context, index) => const ExpandableWidget(
+                    icon: Icons.arrow_upward_outlined,
+                    iconColor: Colors.green,
+                    isExpandable: false,
+                  ),
+                  separatorBuilder: (context, index) => Gap(8.h),
+                  itemCount: 5,
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -90,10 +107,11 @@ class _FinancialScreenState extends State<FinancialScreen> {
     return intl.DateFormat.yMd().format(date);
   }
 
-  Widget dateElement(
-      {required String dateTitle,
-      required String date,
-      required void Function()? onTap}) {
+  Widget dateElement({
+    required String dateTitle,
+    required String date,
+    required void Function()? onTap,
+  }) {
     return Row(
       children: [
         Text(
@@ -106,7 +124,7 @@ class _FinancialScreenState extends State<FinancialScreen> {
             padding: EdgeInsets.all(10.0.h),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(),
+              border: Border.all(color: KTheme.mainColor),
             ),
             child: Text(
               date,

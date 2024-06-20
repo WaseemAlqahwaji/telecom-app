@@ -3,6 +3,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:telecom_project/config/helpers/hex_color.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
 
@@ -28,7 +29,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
     return ConditionalBuilder(
       builder: (context) => Container(
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(.2),
+          color: HexColor("#F0F0F0"),
           borderRadius: BorderRadius.circular(8.r),
         ),
         padding: EdgeInsets.all(10.h),
@@ -105,7 +106,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
       condition: widget.isExpandable,
       fallback: (context) => Container(
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(.2),
+          color: HexColor("#F0F0F0"),
           borderRadius: BorderRadius.circular(8.r),
         ),
         padding: EdgeInsets.all(10.h),
