@@ -10,4 +10,5 @@ class Routes {
   static const String paidScreen = 'paidScreen';
   static const String financialScreen = 'financialScreen';
   static const String appGemsScreen = 'appGemScreen';
+  static const String fundScreen = 'fundScreen';
 }

@@ -4,6 +4,7 @@ import 'package:telecom_project/config/routes/route_path.dart';
 import 'package:telecom_project/features/adsl/view/screens/adsl_main_screen.dart';
 import 'package:telecom_project/features/electric/view/screens/electric_screen.dart';
 import 'package:telecom_project/features/financial/view/screens/financial_screen.dart';
+import 'package:telecom_project/features/funds/view/screens/funds_screen.dart';
 import 'package:telecom_project/features/home/view/screens/home_screen.dart';
 import 'package:telecom_project/features/login/view/screens/login_screen.dart';
 import 'package:telecom_project/features/home_phone/view/screens/home_phone_screen.dart';
@@ -14,26 +15,15 @@ import 'package:telecom_project/features/water/view/screens/water_main_screen.da
 import 'package:telecom_project/features/app_gems/view/screens/app_gem_screen.dart';
 
 class AppRouter {
-  // static String? currnetScreenName;
-  // static String? previousScreenName;
   static Route generateRoute(RouteSettings settings) {
-    // if (settings.name != currnetScreenName &&
-    //     previousScreenName == Routes.homeScreen) {
-    //   if (settings.name == Routes.homeScreen) previousScreenName = null;
-    //   currnetScreenName = settings.name;
-    // } else {
-    //   previousScreenName = currnetScreenName;
-    //   currnetScreenName = settings.name;
-    // }
-
-    // print(
-    //     "------------------- current is : $currnetScreenName ----------------");
-    // print(
-    //     "------------------- previous is : $previousScreenName ----------------");
     switch (settings.name) {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
+        );
+      case Routes.fundScreen:
+        return MaterialPageRoute(
+          builder: (_) => const FundsScreen(),
         );
       case Routes.financialScreen:
         return MaterialPageRoute(

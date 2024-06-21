@@ -26,23 +26,22 @@ class _AppGemScreenState extends State<AppGemScreen> {
   Widget _buildItemList(BuildContext context, int index) {
     return Container(
       width: 223.74.w,
-
-     padding: EdgeInsets.symmetric(horizontal:1.w),
+      padding: EdgeInsets.symmetric(horizontal: 1.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 223.74.w- (2 * 1.w),
+            width: 223.74.w - (2 * 1.w),
             height: 138.h,
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(data[index]),
+                image: DecorationImage(
+                  image: AssetImage(data[index]),
                 ),
-              border: Border.all(
-                color: KTheme.mainColor,
-                width: 2.w,
-              ),
-              borderRadius: BorderRadius.circular(24.r)
-            ),
+                border: Border.all(
+                  color: KTheme.mainColor,
+                  width: 2.w,
+                ),
+                borderRadius: BorderRadius.circular(24.r)),
           ),
         ],
       ),
@@ -52,8 +51,8 @@ class _AppGemScreenState extends State<AppGemScreen> {
   @override
   Widget build(BuildContext context) {
     // Set initial index to the middle of the data
-    int lengthOfData=data.length;
-    int initialIndex = (lengthOfData~/2).toInt();
+    int lengthOfData = data.length;
+    int initialIndex = (lengthOfData ~/ 2).toInt();
     return CoreScreen(
       child: Column(
         children: [
@@ -78,7 +77,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child:  Column(
+            child: Column(
               children: [
                 const MainTextFormComponent(
                   title: 'أدخل ال ID:',
@@ -86,9 +85,8 @@ class _AppGemScreenState extends State<AppGemScreen> {
                   textDirection: TextDirection.ltr,
                 ),
                 Row(
-
                   children: [
-                    const  Expanded(
+                    const Expanded(
                       child: MainTextFormComponent(
                         title: 'المبلغ :',
                         hintText: 'السعر / القيمة',
@@ -106,10 +104,8 @@ class _AppGemScreenState extends State<AppGemScreen> {
                   ],
                 )
               ],
-
             ),
           ),
-
         ],
       ),
     );
