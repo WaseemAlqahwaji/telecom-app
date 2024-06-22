@@ -6,7 +6,6 @@ import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/date_element.dart';
 import 'package:telecom_project/features/core/view/widgets/date_picker.dart';
 import 'package:telecom_project/features/core/view/widgets/expandable_widget.dart';
-import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 
 class FinancialScreen extends StatefulWidget {
   const FinancialScreen({super.key});

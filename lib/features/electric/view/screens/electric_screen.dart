@@ -22,8 +22,8 @@ class _ElectricScreenState extends State<ElectricScreen> {
         child: ScrollColumnExpandable(
           children: [
             const MainTextFormComponent(
-              title: "الرقم : ",
-              hintText: "أدخل الرقم او الكود",
+              title: "الرقم الخاص (المميز) :",
+              hintText: "أدخل الرقم",
             ),
             Gap(24.h),
             MainTextFormComponent(

@@ -79,7 +79,10 @@ class HomeScreenState extends State<HomeScreen> {
       dialogTitle: "هل تريد تسجيل الخروج ؟",
       onTapCancel: () => Navigator.pop(context),
       onTapConfirm: () {
-        context.pushReplacementNamed(Routes.loginScreen);
+        context.pushNamedAndRemoveUntil(
+          Routes.loginScreen,
+          predicate: (route) => false,
+        );
       },
     );
   }
@@ -167,4 +170,3 @@ Widget categoryContainer({
     ),
   );
 }
-

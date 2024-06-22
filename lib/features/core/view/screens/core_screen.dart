@@ -4,9 +4,11 @@ import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 
 class CoreScreen extends StatelessWidget {
   final Widget child;
+  final bool? isWithAppbar;
   const CoreScreen({
     super.key,
     required this.child,
+    this.isWithAppbar = true,
   });
 
   @override
@@ -22,7 +24,7 @@ class CoreScreen extends StatelessWidget {
       child: Scaffold(
         // drawer: const MainDrawer(),
         backgroundColor: Colors.transparent,
-        appBar: mainAppbar,
+        appBar: isWithAppbar == true ? mainAppbar : null,
         // extendBodyBehindAppBar: true,
         body: child,
       ),
