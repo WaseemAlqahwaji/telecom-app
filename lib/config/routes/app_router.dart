@@ -11,6 +11,7 @@ import 'package:telecom_project/features/home_phone/view/screens/home_phone_scre
 import 'package:telecom_project/features/opration/view/cubit/opration_cubit.dart';
 import 'package:telecom_project/features/opration/view/screens/opration_screen.dart';
 import 'package:telecom_project/features/paid/view/paid_screen.dart';
+import 'package:telecom_project/features/questionnaires/view/questionnaires_screen.dart';
 import 'package:telecom_project/features/water/view/screens/water_main_screen.dart';
 import 'package:telecom_project/features/app_gems/view/screens/app_gem_screen.dart';
 
@@ -20,6 +21,10 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
+        );
+      case Routes.questionnairesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const QuestionnairesScreen(),
         );
       case Routes.fundScreen:
         return MaterialPageRoute(
@@ -71,7 +76,7 @@ class AppRouter {
               child: Text(
                 'No route defined for ${settings.name}',
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),

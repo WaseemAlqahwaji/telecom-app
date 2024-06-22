@@ -6,18 +6,25 @@ import 'package:gap/gap.dart';
 import 'package:telecom_project/config/helpers/hex_color.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
+import 'package:tuple/tuple.dart';
 
 class ExpandableWidget extends StatefulWidget {
   // temprory parametrs
-  final bool isExpandable;
+  final Tuple2<bool, Widget> expandableWidget;
   final IconData icon;
   final Color iconColor;
-  const ExpandableWidget({
+  const ExpandableWidget.expand({
     super.key,
-    this.isExpandable = true,
+    required this.expandableWidget,
     required this.icon,
     required this.iconColor,
   });
+
+  ExpandableWidget.regular({
+    super.key,
+    required this.icon,
+    required this.iconColor,
+  }) : expandableWidget = Tuple2<bool, Widget>(false, Container());
 
   @override
   State<ExpandableWidget> createState() => _ExpandableWidgetState();
@@ -82,23 +89,10 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
             ],
           ),
           collapsed: const SizedBox.shrink(),
-          expanded: Column(
-            children: [
-              Gap(10.0.h),
-              const Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "مرفوضة من قبل : الإدارة",
-                ),
-              ),
-              const Text(
-                "لا بوجد رصيد كاف في حسابك",
-              ),
-            ],
-          ),
+          expanded: widget.expandableWidget.item2,
         ),
       ),
-      condition: widget.isExpandable,
+      condition: widget.expandableWidget.item1,
       fallback: (context) => Container(
         decoration: BoxDecoration(
           color: HexColor("#F0F0F0"),

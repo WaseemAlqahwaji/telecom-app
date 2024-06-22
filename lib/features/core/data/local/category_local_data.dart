@@ -12,5 +12,5 @@ List<Tuple3<String,String,String>> categoryData = const [
   Tuple3(Routes.fundScreen, "كازية", "assets/images/bag.png"),
   Tuple3(Routes.electicScreen, "كهرباء", "assets/images/electric.png"),
   Tuple3(Routes.paidScreen, "دفعة", "assets/images/cash.png"),
-  Tuple3(Routes.adslScreen, "شحن تطبيقات", "assets/images/gamejoy.png"),
+  Tuple3(Routes.appGemsScreen, "شحن تطبيقات", "assets/images/gamejoy.png"),
 ];
