@@ -34,8 +34,8 @@ class _ElectricScreenState extends State<ElectricScreen> {
             ),
             Gap(24.h),
             const MainTextFormComponent(
-              title: "رقم الباركود :",
-              hintText: "ادخل رقم الباركود",
+              title: "رقم الاشتراك",
+              hintText: "أدخل رقم الاشتراك",
             ),
             Gap(24.h),
             const MainTextFormComponent(

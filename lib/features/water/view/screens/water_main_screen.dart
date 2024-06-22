@@ -22,7 +22,7 @@ class _WaterScreen extends State<WaterScreen> {
         child: ScrollColumnExpandable(
           children: [
             const MainTextFormComponent(
-              title: "الرقم : ",
+              title: "رقم المفتاح مع الشرطات (-) :",
               hintText: "أدخل الرقم او الكود",
             ),
             Gap(24.h),
