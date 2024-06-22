@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:telecom_project/config/theming/theme.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
@@ -26,25 +27,16 @@ class _AppGemScreenState extends State<AppGemScreen> {
   Widget _buildItemList(BuildContext context, int index) {
     return Container(
       width: 223.74.w,
-
-     padding: EdgeInsets.symmetric(horizontal:1.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 223.74.w- (2 * 1.w),
-            height: 138.h,
-            decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(data[index]),
-                ),
-              border: Border.all(
-                color: KTheme.mainColor,
-                width: 2.w,
-              ),
-              borderRadius: BorderRadius.circular(24.r)
-            ),
+      height: 138.h,
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(data[index]),
           ),
-        ],
+        border: Border.all(
+          color: KTheme.mainColor,
+          width: 2.w,
+        ),
+        borderRadius: BorderRadius.circular(24.r)
       ),
     );
   }
@@ -53,31 +45,32 @@ class _AppGemScreenState extends State<AppGemScreen> {
   Widget build(BuildContext context) {
     // Set initial index to the middle of the data
     int lengthOfData=data.length;
-    int initialIndex = (lengthOfData~/2).toInt();
+    double initialIndex = (lengthOfData/2);
     return CoreScreen(
       child: Column(
         children: [
           Container(
-            height: 210.h,
-            child: ScrollSnapList(
-              //listViewPadding: EdgeInsets.symmetric(horizontal: 1),
-              initialIndex: initialIndex.toDouble(),
-              onItemFocus: (index) {
-                print('Focused item index: $index');
-              },
-              dynamicItemOpacity: 0.3,
-              dynamicItemSize: true,
-              itemBuilder: _buildItemList,
-              itemSize: 223.74.w, // Set item size to 100
-              //dynamicItemSize: false, // Disable dynamic item size
-              onReachEnd: () {
-                print('Done!');
-              },
-              itemCount: data.length,
+            //width: MediaQuery.of(context).size.width,
+              height: 138.h,
+              child: ScrollSnapList(
+                        initialIndex: initialIndex.toDouble(),
+                        onItemFocus: (index) {
+                          print('Focused item index: $index');
+                        },
+                        dynamicItemOpacity: 0.3,
+                        dynamicItemSize: true,
+                        itemBuilder: _buildItemList,
+                        itemSize:  100.74.w, // Set item size to 100
+                        //dynamicItemSize: false, // Disable dynamic item size
+                        onReachEnd: () {
+                          print('Done!');
+                        },
+                        itemCount: data.length,
+
+                 ),
             ),
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding:  EdgeInsets.symmetric(horizontal: 30.w),
             child:  Column(
               children: [
                 const MainTextFormComponent(
@@ -85,19 +78,35 @@ class _AppGemScreenState extends State<AppGemScreen> {
                   hintText: 'أدخل ID الحساب في اللعبة او التطبيق',
                   textDirection: TextDirection.ltr,
                 ),
+                Gap(28.h),
                 Row(
-
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const  Expanded(
-                      child: MainTextFormComponent(
-                        title: 'المبلغ :',
-                        hintText: 'السعر / القيمة',
-                        textDirection: TextDirection.ltr,
-                      ),
+
+                    LayoutBuilder(
+                      builder: (context,cons) {
+                        print(cons.maxHeight);
+                        return MainTextFormComponent(
+                           title: 'المبلغ :',
+                           hintText: 'السعر / القيمة',
+                           textDirection: TextDirection.ltr,
+                         );
+                      }
                     ),
-                    Image.asset('assets/images/Vector.png'),
+                    Gap(10.h),
+                    Column(
+                      children: [
+                        LayoutBuilder(
+                          builder: (context,cons) {
+                            return Image.asset('assets/images/Vector.png');
+                          }
+                        ),
+                      ],
+                    ),
+                    Gap(10.h),
                     const Expanded(
-                      child: MainTextFormComponent(
+                      child:  MainTextFormComponent(
                         title: 'المبلغ :',
                         hintText: 'السعر / القيمة',
                         textDirection: TextDirection.ltr,

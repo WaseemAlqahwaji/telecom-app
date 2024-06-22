@@ -7,12 +7,15 @@ class MainButton extends StatelessWidget {
   final double? width;
   final double? height;
   final bool? isBackGroungWhite;
-
+  final int? maxLines;
+  final bool fitBox;
   const MainButton({
     super.key,
     required this.onPressd,
     this.width,
     required this.lable,
+    this.maxLines,
+    this.fitBox=false,
     this.isBackGroungWhite = false, this.height,
   });
 
@@ -35,7 +38,15 @@ class MainButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressd,
-        child: Text(
+        child: fitBox?FittedBox(
+          child: Text(
+            lable,
+            maxLines: maxLines,
+            style: TextStyle(
+              color: isBackGroungWhite == true ? KTheme.mainColor : Colors.white,
+            ),
+          ),
+        ):Text(
           lable,
           style: TextStyle(
             color: isBackGroungWhite == true ? KTheme.mainColor : Colors.white,
