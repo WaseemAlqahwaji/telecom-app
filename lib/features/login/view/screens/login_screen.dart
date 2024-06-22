@@ -30,96 +30,97 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return CoreScreen(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ScrollColumnExpandable(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(
-                flex: 1,
-              ),
-              Container(
-                width: 200.w,
-                height: 200.h,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/telecom_logo.png",
-                    ),
+      isWithAppbar: false,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ScrollColumnExpandable(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(
+              flex: 1,
+            ),
+            Container(
+              width: 200.w,
+              height: 200.h,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/telecom_logo.png",
                   ),
                 ),
               ),
-              Text(
-                "أهلا وسهلا",
-                style: TextStyled.font24DarkBlue400,
+            ),
+            Text(
+              "أهلا وسهلا",
+              style: TextStyled.font24DarkBlue400,
+            ),
+            const Gap(10.0),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "اسم المستخدم :",
+                style: TextStyled.font16Grey400,
               ),
-              const Gap(10.0),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "اسم المستخدم :",
-                  style: TextStyled.font16Grey400,
-                ),
+            ),
+            Gap(10.0.h),
+            TextFormField(
+              controller: userNameController,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            Gap(10.0.h),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "كلمة المرور :",
+                style: TextStyled.font16Grey400,
               ),
-              Gap(10.0.h),
-              TextFormField(
-                controller: userNameController,
-                keyboardType: TextInputType.emailAddress,
-              ),
-              Gap(10.0.h),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "كلمة المرور :",
-                  style: TextStyled.font16Grey400,
-                ),
-              ),
-              Gap(10.0.h),
-              TextFormField(
-                controller: passwordController,
-                keyboardType: TextInputType.visiblePassword,
-              ),
-              Gap(20.0.h),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 20.0.h,
-                    width: 20.0.w,
-                    child: Checkbox(
-                      activeColor: KTheme.mainColor,
-                      side:
-                          BorderSide(color: KTheme.secondColor, width: 2),
-                      value: isChecked,
-                      shape: const CircleBorder(),
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value!;
-                        });
-                      },
-                    ),
+            ),
+            Gap(10.0.h),
+            TextFormField(
+              controller: passwordController,
+              keyboardType: TextInputType.visiblePassword,
+            ),
+            Gap(20.0.h),
+            Row(
+              children: [
+                SizedBox(
+                  height: 20.0.h,
+                  width: 20.0.w,
+                  child: Checkbox(
+                    activeColor: KTheme.mainColor,
+                    side:
+                        BorderSide(color: KTheme.secondColor, width: 2),
+                    value: isChecked,
+                    shape: const CircleBorder(),
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked = value!;
+                      });
+                    },
                   ),
-                  Gap(5.0.w),
-                  const Expanded(
-                    child: Text(
-                      "تذكر معلومات حسابي في المرات القادمة",
-                    ),
+                ),
+                Gap(5.0.w),
+                const Expanded(
+                  child: Text(
+                    "تذكر معلومات حسابي في المرات القادمة",
                   ),
-                ],
-              ),
-              Gap(20.0.h),
-              MainButton(
-                onPressd: () {
-                  context.pushReplacementNamed(Routes.homeScreen);
-                },
-                lable: "تسجيل دخول",
-                width: double.infinity,
-              ),
-              const Spacer(
-                flex: 6,
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+            Gap(20.0.h),
+            MainButton(
+              onPressd: () {
+                context.pushReplacementNamed(Routes.homeScreen);
+              },
+              lable: "تسجيل دخول",
+              width: double.infinity,
+            ),
+            const Spacer(
+              flex: 6,
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

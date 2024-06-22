@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:telecom_project/config/helpers/hex_color.dart';
-import 'package:telecom_project/config/helpers/material_color_converter.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 
 class KTheme {
@@ -32,8 +31,7 @@ class KTheme {
         fontFamily: "Cairo",
         inputDecorationTheme: InputDecorationTheme(
           isDense: true,
-          hintStyle: TextStyled.font16Grey400
-              .copyWith(color: Colors.grey.withOpacity(.6)),
+          hintStyle: TextStyled.font16Grey400.copyWith(color: HexColor("#8387A8")),
           contentPadding: const EdgeInsets.all(10.0),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(

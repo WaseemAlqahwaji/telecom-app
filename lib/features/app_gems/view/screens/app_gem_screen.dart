@@ -27,10 +27,29 @@ class _AppGemScreenState extends State<AppGemScreen> {
   Widget _buildItemList(BuildContext context, int index) {
     return Container(
       width: 223.74.w,
+<<<<<<< HEAD
       height: 138.h,
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(data[index]),
+=======
+      padding: EdgeInsets.symmetric(horizontal: 1.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 223.74.w - (2 * 1.w),
+            height: 138.h,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(data[index]),
+                ),
+                border: Border.all(
+                  color: KTheme.mainColor,
+                  width: 2.w,
+                ),
+                borderRadius: BorderRadius.circular(24.r)),
+>>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
           ),
         border: Border.all(
           color: KTheme.mainColor,
@@ -44,8 +63,13 @@ class _AppGemScreenState extends State<AppGemScreen> {
   @override
   Widget build(BuildContext context) {
     // Set initial index to the middle of the data
+<<<<<<< HEAD
     int lengthOfData=data.length;
     double initialIndex = (lengthOfData/2);
+=======
+    int lengthOfData = data.length;
+    int initialIndex = (lengthOfData ~/ 2).toInt();
+>>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
     return CoreScreen(
       child: Column(
         children: [
@@ -70,8 +94,13 @@ class _AppGemScreenState extends State<AppGemScreen> {
                  ),
             ),
           Padding(
+<<<<<<< HEAD
             padding:  EdgeInsets.symmetric(horizontal: 30.w),
             child:  Column(
+=======
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+>>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
               children: [
                 const MainTextFormComponent(
                   title: 'أدخل ال ID:',
@@ -80,6 +109,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
                 ),
                 Gap(28.h),
                 Row(
+<<<<<<< HEAD
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -93,6 +123,15 @@ class _AppGemScreenState extends State<AppGemScreen> {
                            textDirection: TextDirection.ltr,
                          );
                       }
+=======
+                  children: [
+                    const Expanded(
+                      child: MainTextFormComponent(
+                        title: 'المبلغ :',
+                        hintText: 'السعر / القيمة',
+                        textDirection: TextDirection.ltr,
+                      ),
+>>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
                     ),
                     Gap(10.h),
                     Column(
@@ -115,10 +154,8 @@ class _AppGemScreenState extends State<AppGemScreen> {
                   ],
                 )
               ],
-
             ),
           ),
-
         ],
       ),
     );
