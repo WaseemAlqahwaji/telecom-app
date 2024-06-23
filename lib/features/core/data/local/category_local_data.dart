@@ -7,7 +7,7 @@ List<Tuple3<String,String,String>> categoryData = const [
   Tuple3(Routes.oprationScreen, "العمليات", "assets/images/person.png"),
   Tuple3(Routes.adslScreen, "ADSL", "assets/images/adsl.png"),
   Tuple3(Routes.homePhoneScreen, "أرضي", "assets/images/phone.png"),
-  Tuple3(Routes.adslScreen, "موبايل", "assets/images/mobile.png"),
+  Tuple3(Routes.mobileScreen, "موبايل", "assets/images/mobile.png"),
   Tuple3(Routes.waterScreen, "مياه", "assets/images/water.png"),
   Tuple3(Routes.fundScreen, "كازية", "assets/images/bag.png"),
   Tuple3(Routes.electicScreen, "كهرباء", "assets/images/electric.png"),

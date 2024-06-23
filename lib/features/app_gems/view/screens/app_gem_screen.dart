@@ -1,9 +1,14 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
+import 'package:telecom_project/config/helpers/extensions.dart';
+import 'package:telecom_project/config/helpers/hex_color.dart';
+import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/view/screens/core_screen.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
+import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
 
 class AppGemScreen extends StatefulWidget {
@@ -14,149 +19,170 @@ class AppGemScreen extends StatefulWidget {
 }
 
 class _AppGemScreenState extends State<AppGemScreen> {
-  List<String> data = [
-    'assets/images/bigo.jpg',
-    'assets/images/cash.png',
-    'assets/images/currency.png',
-    'assets/images/currency.png',
-    'assets/images/bigo.jpg',
-    'assets/images/bigo.jpg',
-    'assets/images/bigo.jpg',
-  ];
-
-  Widget _buildItemList(BuildContext context, int index) {
+  @override
+  Widget build(BuildContext context) {
+    // Set initial index to the middle of the data
     return Container(
-      width: 223.74.w,
-<<<<<<< HEAD
-      height: 138.h,
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(data[index]),
-=======
-      padding: EdgeInsets.symmetric(horizontal: 1.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 223.74.w - (2 * 1.w),
-            height: 138.h,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(data[index]),
-                ),
-                border: Border.all(
-                  color: KTheme.mainColor,
-                  width: 2.w,
-                ),
-                borderRadius: BorderRadius.circular(24.r)),
->>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
-          ),
-        border: Border.all(
-          color: KTheme.mainColor,
-          width: 2.w,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage("assets/images/backgroud_screens.png"),
         ),
-        borderRadius: BorderRadius.circular(24.r)
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: mainAppbar,
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            Gap(24.h),
+            cardHorizontalList(),
+            Gap(15.h),
+            formsItem(),
+            Gap(24.h),
+            gemsPriceList(),
+            Gap(32.h),
+            sendRequestButton(),
+            Gap(32.h),
+          ],
+        ),
       ),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    // Set initial index to the middle of the data
-<<<<<<< HEAD
-    int lengthOfData=data.length;
-    double initialIndex = (lengthOfData/2);
-=======
-    int lengthOfData = data.length;
-    int initialIndex = (lengthOfData ~/ 2).toInt();
->>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
-    return CoreScreen(
-      child: Column(
-        children: [
-          Container(
-            //width: MediaQuery.of(context).size.width,
-              height: 138.h,
-              child: ScrollSnapList(
-                        initialIndex: initialIndex.toDouble(),
-                        onItemFocus: (index) {
-                          print('Focused item index: $index');
-                        },
-                        dynamicItemOpacity: 0.3,
-                        dynamicItemSize: true,
-                        itemBuilder: _buildItemList,
-                        itemSize:  100.74.w, // Set item size to 100
-                        //dynamicItemSize: false, // Disable dynamic item size
-                        onReachEnd: () {
-                          print('Done!');
-                        },
-                        itemCount: data.length,
-
-                 ),
-            ),
-          Padding(
-<<<<<<< HEAD
-            padding:  EdgeInsets.symmetric(horizontal: 30.w),
-            child:  Column(
-=======
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: Column(
->>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
-              children: [
-                const MainTextFormComponent(
-                  title: 'أدخل ال ID:',
-                  hintText: 'أدخل ID الحساب في اللعبة او التطبيق',
-                  textDirection: TextDirection.ltr,
-                ),
-                Gap(28.h),
-                Row(
-<<<<<<< HEAD
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-
-                    LayoutBuilder(
-                      builder: (context,cons) {
-                        print(cons.maxHeight);
-                        return MainTextFormComponent(
-                           title: 'المبلغ :',
-                           hintText: 'السعر / القيمة',
-                           textDirection: TextDirection.ltr,
-                         );
-                      }
-=======
-                  children: [
-                    const Expanded(
-                      child: MainTextFormComponent(
-                        title: 'المبلغ :',
-                        hintText: 'السعر / القيمة',
-                        textDirection: TextDirection.ltr,
-                      ),
->>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
-                    ),
-                    Gap(10.h),
-                    Column(
-                      children: [
-                        LayoutBuilder(
-                          builder: (context,cons) {
-                            return Image.asset('assets/images/Vector.png');
-                          }
-                        ),
-                      ],
-                    ),
-                    Gap(10.h),
-                    const Expanded(
-                      child:  MainTextFormComponent(
-                        title: 'المبلغ :',
-                        hintText: 'السعر / القيمة',
-                        textDirection: TextDirection.ltr,
-                      ),
-                    ),
-                  ],
-                )
-              ],
+  Widget gemsPriceList() {
+    return Expanded(
+      flex: 2,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16.r),
+            border: Border.all(
+              width: 2,
+              color: KTheme.mainColor,
             ),
           ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset("assets/images/bigo.png"),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: HexColor("#DFEBF0").withOpacity(.4),
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
+              ),
+              Column(
+                children: [
+                  Text(
+                    "BIGO LIVE",
+                    style: TextStyled.font24Blue600.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
+                  Flexible(
+                    child: ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (context, index) =>  Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "19,000 SP",
+                            style: TextStyled.font16Grey400,
+                          ),
+                          Text(
+                            "50",
+                            style: TextStyled.font16Grey400,
+
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding sendRequestButton() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+      child: MainButton(
+        onPressd: () {},
+        lable: "إرسال الطلب",
+        width: double.infinity,
+        height: 56.h,
+      ),
+    );
+  }
+
+  Padding formsItem() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      child: Column(
+        children: [
+          const MainTextFormComponent(
+            title: 'أدخل ال ID:',
+            hintText: 'أدخل ID الحساب في اللعبة او التطبيق',
+            textDirection: TextDirection.ltr,
+          ),
+          Gap(28.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Expanded(
+                child: MainTextFormComponent(
+                  title: 'عدد العملات :',
+                  hintText: 'أدخل عدد العملات',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Gap(10.h),
+              Image.asset('assets/images/Vector.png'),
+              Gap(10.h),
+              const Expanded(
+                child: MainTextFormComponent(
+                  title: 'المبلغ :',
+                  hintText: 'السعر / القيمة',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+
+  Flexible cardHorizontalList() {
+    return Flexible(
+      child: Swiper(
+        loop: false,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24.r),
+              border: Border.all(color: KTheme.mainColor, width: 2),
+              image: const DecorationImage(
+                image: AssetImage(
+                  "assets/images/bigo.png",
+                ),
+              ),
+            ),
+          );
+        },
+        itemCount: 2,
+        viewportFraction: 0.8,
+        scale: 0.9,
       ),
     );
   }

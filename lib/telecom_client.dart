@@ -21,11 +21,7 @@ class TelecomApp extends StatelessWidget {
       child: MaterialApp(
         themeMode: ThemeMode.dark,
         onGenerateRoute: AppRouter.generateRoute,
-<<<<<<< HEAD
-        initialRoute: Routes.mobileScreen,
-=======
         initialRoute: Routes.homeScreen,
->>>>>>> b968caaea7344664806c29ed24841f1094cc8b28
         theme: KTheme.ligthTheme(),
         debugShowCheckedModeBanner: false,
         builder: (context, child) => Directionality(

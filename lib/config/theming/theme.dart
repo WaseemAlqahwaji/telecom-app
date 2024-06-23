@@ -31,7 +31,9 @@ class KTheme {
         fontFamily: "Cairo",
         inputDecorationTheme: InputDecorationTheme(
           isDense: true,
-          hintStyle: TextStyled.font16Grey400.copyWith(color: HexColor("#8387A8")),
+          hintStyle: TextStyled.font16Grey400.copyWith(
+            color: HexColor("#8387A8"),
+          ),
           contentPadding: const EdgeInsets.all(10.0),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
