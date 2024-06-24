@@ -20,46 +20,48 @@ class _MobileScreen extends State<MobileScreen> {
     return CoreScreen(
       resizeToAvoidBottomInset: false,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            flex: 30,
-            child: HorizontalSwiper(
-              imagesPaths: imagesPaths,
-              isWithBorder: false,
-              imageFit: BoxFit.fill,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              flex: 30,
+              child: HorizontalSwiper(
+                imagesPaths: imagesPaths,
+                isWithBorder: false,
+                imageFit: BoxFit.fill,
+              ),
             ),
-          ),
-          Gap(24.h),
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 30.0.w),
-            child: Column(
-              children: [
-                const MainTextFormComponent(
-                  title: 'الرقم',
-                  hintText: 'أدخل الرقم أو الكود',
-                ),
-                Gap(24.h),
-                const OperationType(),
-                Gap(24.h),
-                const MainTextFormComponent(
-                  title: 'الكمية',
-                  hintText: 'أدخل الكمية',
-                ),
-                Gap(24.h),
-                MainButton(
-                  width: double.infinity,
-                  onPressd: () {},
-                  lable: 'إرسال الطلب',
-                ),
-              ],
+            Gap(24.h),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 30.0.w),
+              child: Column(
+                children: [
+                  const MainTextFormComponent(
+                    title: 'الرقم',
+                    hintText: 'أدخل الرقم أو الكود',
+                  ),
+                  Gap(24.h),
+                  SizedBox(
+                    height:49.h,
+                      child:const OperationType()),
+                  Gap(24.h),
+                  const MainTextFormComponent(
+                    title: 'الكمية',
+                    hintText: 'أدخل الكمية',
+                  ),
+                  Gap(24.h),
+                  MainButton(
+                    width: double.infinity,
+                    onPressd: () {},
+                    lable: 'إرسال الطلب',
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Spacer(
-            flex: 70,
-          )
-        ],
-      ),
+            const Spacer(
+              flex: 70,
+            )
+          ],
+        ),
     );
   }
 
