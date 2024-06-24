@@ -5,10 +5,12 @@ import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 class CoreScreen extends StatelessWidget {
   final Widget child;
   final bool? isWithAppbar;
+  final bool? resizeToAvoidBottomInset;
   const CoreScreen({
     super.key,
     required this.child,
     this.isWithAppbar = true,
+    this.resizeToAvoidBottomInset,
   });
 
   @override
@@ -22,7 +24,7 @@ class CoreScreen extends StatelessWidget {
         image: AssetImage("assets/images/backgroud_screens.png"),
       )),
       child: Scaffold(
-        // drawer: const MainDrawer(),
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         backgroundColor: Colors.transparent,
         appBar: isWithAppbar == true ? mainAppbar : null,
         // extendBodyBehindAppBar: true,

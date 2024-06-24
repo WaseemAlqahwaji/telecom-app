@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:telecom_project/config/theming/theme.dart';
 
@@ -7,16 +8,15 @@ class MainButton extends StatelessWidget {
   final double? width;
   final double? height;
   final bool? isBackGroungWhite;
-  final int? maxLines;
   final bool fitBox;
   const MainButton({
     super.key,
     required this.onPressd,
     this.width,
     required this.lable,
-    this.maxLines,
-    this.fitBox=false,
-    this.isBackGroungWhite = false, this.height,
+    this.fitBox = false,
+    this.isBackGroungWhite = false,
+    this.height,
   });
 
   @override
@@ -38,19 +38,26 @@ class MainButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressd,
-        child: fitBox?FittedBox(
-          child: Text(
+        child: ConditionalBuilder(
+          condition: fitBox,
+          fallback: (context) => Text(
             lable,
-            maxLines: maxLines,
             style: TextStyle(
-              color: isBackGroungWhite == true ? KTheme.mainColor : Colors.white,
+              color:isBackGroungWhite == true ? KTheme.mainColor : Colors.white,
             ),
           ),
-        ):Text(
-          lable,
-          style: TextStyle(
-            color: isBackGroungWhite == true ? KTheme.mainColor : Colors.white,
-          ),
+          builder: (context) {
+            return FittedBox(
+              child: Text(
+                lable,
+                style: TextStyle(
+                  color: isBackGroungWhite == true
+                      ? KTheme.mainColor
+                      : Colors.white,
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

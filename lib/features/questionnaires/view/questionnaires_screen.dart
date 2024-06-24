@@ -68,7 +68,7 @@ class _QuestionnairesScreenState extends State<QuestionnairesScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: ListView.separated(
-                itemBuilder: (context, index) =>  ExpandableWidget.expand(
+                itemBuilder: (context, index) => ExpandableWidget.expand(
                   expandableWidget: Tuple2(
                     true,
                     Column(
@@ -98,13 +98,16 @@ class _QuestionnairesScreenState extends State<QuestionnairesScreen> {
                                 "المزود : السورية للاتصالات",
                               ),
                             ),
-                            MainButton(onPressd: (){}, lable: "دفع",),
+                            MainButton(
+                              onPressd: () {},
+                              lable: "دفع",
+                            ),
                           ],
                         ),
                       ],
                     ),
                   ),
-                  icon: Icons.arrow_upward_outlined,
+                  icon: Icons.check,
                   iconColor: Colors.green,
                 ),
                 separatorBuilder: (context, index) => Gap(8.h),
