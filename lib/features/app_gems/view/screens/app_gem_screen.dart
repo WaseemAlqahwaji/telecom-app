@@ -1,15 +1,15 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:telecom_project/config/helpers/extensions.dart';
 import 'package:telecom_project/config/helpers/hex_color.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:telecom_project/features/core/view/widgets/horizontal_cards.dart';
 import 'package:telecom_project/features/core/view/widgets/main_appbar.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
+import 'package:tuple/tuple.dart';
 
 class AppGemScreen extends StatefulWidget {
   const AppGemScreen({super.key});
@@ -19,6 +19,8 @@ class AppGemScreen extends StatefulWidget {
 }
 
 class _AppGemScreenState extends State<AppGemScreen> {
+  String listCurrentTitle = "BIGO";
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     // Set initial index to the middle of the data
@@ -36,13 +38,13 @@ class _AppGemScreenState extends State<AppGemScreen> {
         body: Column(
           children: [
             Gap(24.h),
-            cardHorizontalList(),
+            _cardHorizontalList(),
             Gap(15.h),
-            formsItem(),
+            _formsItem(),
             Gap(24.h),
             gemsPriceList(),
             Gap(32.h),
-            sendRequestButton(),
+            _sendRequestButton(),
             Gap(32.h),
           ],
         ),
@@ -52,7 +54,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
 
   Widget gemsPriceList() {
     return Expanded(
-      flex: 2,
+      flex: 70,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         child: Container(
@@ -66,10 +68,6 @@ class _AppGemScreenState extends State<AppGemScreen> {
           ),
           child: Stack(
             children: [
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Image.asset("assets/images/bigo.png"),
-              ),
               Container(
                 decoration: BoxDecoration(
                   color: HexColor("#DFEBF0").withOpacity(.4),
@@ -79,27 +77,54 @@ class _AppGemScreenState extends State<AppGemScreen> {
               Column(
                 children: [
                   Text(
-                    "BIGO LIVE",
+                    listCurrentTitle,
                     style: TextStyled.font24Blue600.copyWith(
                       color: Colors.black,
                     ),
                   ),
+                  Gap(10.0.h),
                   Flexible(
-                    child: ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (context, index) =>  Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            "19,000 SP",
-                            style: TextStyled.font16Grey400,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+                      child: ListView.separated(
+                        itemCount: 10,
+                        separatorBuilder: (context, index) => Gap(8.h),
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(5.h),
+                            decoration: BoxDecoration(
+                              color:selectedIndex == index ? KTheme.mainColor : null,
+                              borderRadius: BorderRadius.circular(10.0.r),
+                            ), 
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  "19,000 SP",
+                                  style: TextStyled.font16Grey400.copyWith(
+                                    color: selectedIndex == index
+                                        ? Colors.white
+                                        : HexColor("#444444"),
+                                  ),
+                                  textDirection: TextDirection.ltr,
+                                ),
+                                Text(
+                                  "50",
+                                  style: TextStyled.font16Grey400.copyWith(
+                                    color: selectedIndex == index
+                                        ? Colors.white
+                                        : HexColor("#444444"),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          Text(
-                            "50",
-                            style: TextStyled.font16Grey400,
-
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -112,19 +137,28 @@ class _AppGemScreenState extends State<AppGemScreen> {
     );
   }
 
-  Padding sendRequestButton() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-      child: MainButton(
-        onPressd: () {},
-        lable: "إرسال الطلب",
-        width: double.infinity,
-        height: 56.h,
+  Widget _cardHorizontalList() {
+    List<String> imagesPaths = [];
+    List<String> titlePaths = [];
+    appGemsData.values.toList().forEach((value) {
+      imagesPaths.add(value["image"]);
+    });
+    titlePaths.addAll(appGemsData.keys);
+    return Flexible(
+      flex: 30,
+      child: HorizontalSwiper(
+        imagesPaths: imagesPaths,
+        onChangeIndex: (index) {
+          // if there is an image in the list
+          setState(() {
+            listCurrentTitle = titlePaths[index];
+          });
+        },
       ),
     );
   }
 
-  Padding formsItem() {
+  Padding _formsItem() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.w),
       child: Column(
@@ -163,27 +197,48 @@ class _AppGemScreenState extends State<AppGemScreen> {
     );
   }
 
-  Flexible cardHorizontalList() {
-    return Flexible(
-      child: Swiper(
-        loop: false,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24.r),
-              border: Border.all(color: KTheme.mainColor, width: 2),
-              image: const DecorationImage(
-                image: AssetImage(
-                  "assets/images/bigo.png",
-                ),
-              ),
-            ),
-          );
-        },
-        itemCount: 2,
-        viewportFraction: 0.8,
-        scale: 0.9,
+  Padding _sendRequestButton() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+      child: MainButton(
+        onPressd: () {},
+        lable: "إرسال الطلب",
+        width: double.infinity,
+        height: 56.h,
       ),
     );
   }
+
+  Map<String, dynamic> appGemsData = {
+    "BIGO LIVE": const {
+      "image": "assets/images/bigo.png",
+      "data": [
+        Tuple2("50", "1900"),
+        Tuple2("100", "35000"),
+        Tuple2("252", "89000"),
+        Tuple2("504", "170000"),
+        Tuple2("1009", "340000"),
+        Tuple2("2018", "560000"),
+        Tuple2("2522", "660000"),
+      ]
+    },
+    "FREE FIRE": const {
+      "image": "assets/images/freefire.png",
+      "data": [
+        Tuple2("100", "20000"),
+        Tuple2("210", "35000"),
+        Tuple2("310", "53000"),
+        Tuple2("530", "85000"),
+      ],
+    },
+    "LivU": const {
+      "image": "assets/images/livu.png",
+      "data": [
+        Tuple2("300", "36000"),
+        Tuple2("650", "58000"),
+        Tuple2("1200", "105000"),
+        Tuple2("2000", "190000"),
+      ],
+    }
+  };
 }
