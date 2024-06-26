@@ -1,0 +1,4 @@
+enum MobileNetworks{
+  mtn,
+  syriatel
+}
