@@ -7,6 +7,7 @@ import 'package:telecom_project/features/core/view/widgets/main_text_form_compon
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_containers.dart';
 import 'package:telecom_project/features/mobile/views/widgets/operation_type.dart';
+import 'package:telecom_project/features/mobile/views/widgets/radis_dialog.dart';
 import 'package:tuple/tuple.dart';
 
 class MobileScreen extends StatefulWidget {
@@ -42,11 +43,25 @@ class _MobileScreen extends State<MobileScreen> {
                   hintText: 'أدخل الرقم أو الكود',
                 ),
                 Gap(24.h),
-                SizedBox(height: 49.h, child: const OperationType()),
+                SizedBox(
+                  height: 49.h,
+                  child: const OperationType(),
+                ),
                 Gap(24.h),
-                const MainTextFormComponent(
+                MainTextFormComponent(
                   title: 'الكمية',
                   hintText: 'أدخل الكمية',
+                  readOnly: true,
+                  onTap: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (context) {
+                        return RadisDialog(
+                          dialogData: dialogData,
+                        );
+                      },
+                    );
+                  },
                 ),
                 Gap(24.h),
                 MainButton(
@@ -62,8 +77,26 @@ class _MobileScreen extends State<MobileScreen> {
     );
   }
 
+  // Dialog selectRasidDialog() {
+  //   int selectedIndex = 0;
+  //   return;
+  // }
+
+  List<Tuple2<int, int>> dialogData = [
+    const Tuple2(40, 50),
+    const Tuple2(65, 75),
+    const Tuple2(90, 100),
+    const Tuple2(95, 110),
+    const Tuple2(100, 115),
+    const Tuple2(40, 50),
+    const Tuple2(65, 75),
+    const Tuple2(90, 100),
+    const Tuple2(95, 110),
+    const Tuple2(100, 115),
+  ];
+
   List<Tuple2<String, MobileNetworks>> cardItemsdata = [
-    const Tuple2("assets/images/syriatel.png" , MobileNetworks.syriatel),
-    const Tuple2("assets/images/mtn.png" , MobileNetworks.mtn),
+    const Tuple2("assets/images/syriatel.png", MobileNetworks.syriatel),
+    const Tuple2("assets/images/mtn.png", MobileNetworks.mtn),
   ];
 }

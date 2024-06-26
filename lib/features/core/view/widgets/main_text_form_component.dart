@@ -11,6 +11,8 @@ class MainTextFormComponent extends StatefulWidget {
   final bool? isDropDown;
   final List<String>? dropDownList;
   final TextDirection? textDirection;
+  final void Function()? onTap;
+  final bool readOnly;
   const MainTextFormComponent({
     super.key,
     required this.title,
@@ -18,6 +20,8 @@ class MainTextFormComponent extends StatefulWidget {
     this.isDropDown = false,
     this.dropDownList,
     this.textDirection,
+    this.onTap,
+    this.readOnly = false,
   });
 
   @override
@@ -41,6 +45,8 @@ class _MainTextFormComponentState extends State<MainTextFormComponent> {
         ConditionalBuilder(
           condition: widget.isDropDown!,
           fallback: (context) => TextFormField(
+            onTap: widget.onTap,
+            readOnly: widget.readOnly,
             decoration: InputDecoration(
               hintText: widget.hintText,
             ),
