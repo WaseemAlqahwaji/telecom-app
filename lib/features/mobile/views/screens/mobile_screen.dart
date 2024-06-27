@@ -93,6 +93,12 @@ class _MobileScreen extends State<MobileScreen> {
     const Tuple2(90, 100),
     const Tuple2(95, 110),
     const Tuple2(100, 115),
+    const Tuple2(100, 115),
+    const Tuple2(40, 50),
+    const Tuple2(65, 75),
+    const Tuple2(90, 100),
+    const Tuple2(95, 110),
+    const Tuple2(100, 115),
   ];
 
   List<Tuple2<String, MobileNetworks>> cardItemsdata = [

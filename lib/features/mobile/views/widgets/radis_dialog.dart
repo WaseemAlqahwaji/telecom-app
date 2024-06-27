@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+import 'package:telecom_project/config/helpers/extensions.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
+import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:tuple/tuple.dart';
 
 class RadisDialog extends StatefulWidget {
@@ -77,8 +80,26 @@ class _RadisDialogState extends State<RadisDialog> {
             Padding(
               padding: EdgeInsets.all(10.0.h),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  
+                  Expanded(
+                    child: MainButton(
+                      isBackGroungWhite: true,
+                      onPressd: () {
+                        context.pop();
+                      },
+                      lable: "إلغاء",
+                    ),
+                  ),
+                  Gap(20.0.w),
+                  Expanded(
+                    child: MainButton(
+                      onPressd: () {
+                        context.pop();
+                      },
+                      lable: "موافقة",
+                    ),
+                  ),
                 ],
               ),
             )
