@@ -12,6 +12,8 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+
+
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
@@ -23,6 +25,11 @@ if (flutterVersionName == null) {
 }
 
 android {
+    // dependencies {
+    // // ...
+    // implementation 'com.google.android.material:material:<version>'
+    // // ...
+    // }
     namespace "com.telecom.telecom_project"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion

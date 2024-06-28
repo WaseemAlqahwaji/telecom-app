@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/features/core/domain/enums/mobile_networks.dart';
@@ -6,8 +8,9 @@ import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_containers.dart';
-import 'package:telecom_project/features/mobile/views/widgets/operation_type.dart';
-import 'package:telecom_project/features/mobile/views/widgets/radis_dialog.dart';
+import 'package:telecom_project/features/mobile/domain/opration_type.dart';
+import 'package:telecom_project/features/core/view/widgets/selectable_row.dart';
+import 'package:telecom_project/features/mobile/views/widgets/quantity_dialog.dart';
 import 'package:tuple/tuple.dart';
 
 class MobileScreen extends StatefulWidget {
@@ -45,7 +48,10 @@ class _MobileScreen extends State<MobileScreen> {
                 Gap(24.h),
                 SizedBox(
                   height: 49.h,
-                  child: const OperationType(),
+                  child: SelectableRow(
+                    datalist: selectableRowData(),
+                    onChange: (value) {},
+                  ),
                 ),
                 Gap(24.h),
                 MainTextFormComponent(
@@ -56,7 +62,7 @@ class _MobileScreen extends State<MobileScreen> {
                     await showDialog(
                       context: context,
                       builder: (context) {
-                        return RadisDialog(
+                        return QuantityDialog(
                           dialogData: dialogData,
                         );
                       },
@@ -77,10 +83,14 @@ class _MobileScreen extends State<MobileScreen> {
     );
   }
 
-  // Dialog selectRasidDialog() {
-  //   int selectedIndex = 0;
-  //   return;
-  // }
+  List<Tuple2<dynamic, String>> selectableRowData() {
+    List<Tuple2<dynamic, String>> data = [];
+    List<String> lables = ["مسبق الدفع", "كاش", "لاحق الدفع"];
+    for (int i = 0; i < OperationsType.values.length; i++) {
+      data.add(Tuple2(OperationsType.values[i], lables[i]));
+    }
+    return data;
+  }
 
   List<Tuple2<int, int>> dialogData = [
     const Tuple2(40, 50),
