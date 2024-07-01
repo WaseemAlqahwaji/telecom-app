@@ -8,7 +8,7 @@ import 'package:telecom_project/config/theming/theme.dart';
 import 'package:telecom_project/features/core/data/local/category_local_data.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/confirm_dialog.dart';
-import 'package:telecom_project/features/core/view/widgets/main_button.dart';
+import 'package:telecom_project/features/core/view/widgets/app_button.dart';
 import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 import 'package:telecom_project/features/core/view/widgets/main_divider.dart';
 import 'package:tuple/tuple.dart';

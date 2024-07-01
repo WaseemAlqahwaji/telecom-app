@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:telecom_project/features/core/view/widgets/main_button.dart';
+import 'package:telecom_project/features/core/view/widgets/app_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tuple/tuple.dart';
 

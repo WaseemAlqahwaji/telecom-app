@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/features/core/data/models/enums/mobile_networks.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
-import 'package:telecom_project/features/core/view/widgets/main_button.dart';
+import 'package:telecom_project/features/core/view/widgets/app_button.dart';
 import 'package:telecom_project/features/core/view/widgets/app_text_form.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_containers.dart';

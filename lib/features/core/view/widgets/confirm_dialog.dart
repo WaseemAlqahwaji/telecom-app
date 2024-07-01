@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/view/widgets/main_button.dart';
+import 'package:telecom_project/features/core/view/widgets/app_button.dart';
 
 class ConfirmDialog extends StatelessWidget {
   final String dialogTitle;
