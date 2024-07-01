@@ -50,13 +50,13 @@ class _AdslMainScreenState extends State<AdslMainScreen> {
               rowTitle: "ملاحظات",
             ),
             Gap(32.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "استعلام",
             ),
             Gap(14.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "دفع",

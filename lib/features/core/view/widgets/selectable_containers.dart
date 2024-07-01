@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/config/helpers/extensions.dart';
 import 'package:telecom_project/config/theming/theme.dart';
-import 'package:telecom_project/features/core/domain/enums/mobile_networks.dart';
+import 'package:telecom_project/features/core/data/models/enums/mobile_networks.dart';
 import 'package:tuple/tuple.dart';
 
 class SelectableContainers extends StatefulWidget {
@@ -45,6 +45,7 @@ class _SelectableContainersState extends State<SelectableContainers> {
                 width: 1,
               ),
               image: DecorationImage(
+                fit: BoxFit.fill,
                 opacity: index == selectedIndex ? 1.0 : 0.4,
                 image: AssetImage(
                   widget.itemsData[index].item1,

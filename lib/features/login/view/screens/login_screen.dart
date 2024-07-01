@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             Gap(20.0.h),
-            MainButton(
+            AppButton(
               onPressd: () {
                 context.pushReplacementNamed(Routes.homeScreen);
               },

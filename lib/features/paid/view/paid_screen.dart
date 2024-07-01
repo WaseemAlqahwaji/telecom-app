@@ -21,16 +21,16 @@ class _PaidScreenState extends State<PaidScreen> {
         padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         child: ScrollColumnExpandable(
           children: [
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "المبلغ : ",
               hintText: "أدخل المبلغ",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "ملاحظات : ",
             ),
             Gap(32.h),
-            MainButton(
+            AppButton(
               onPressd: () {},
               lable: "استعلام",
               width: double.infinity,

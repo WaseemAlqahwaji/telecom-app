@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:telecom_project/features/core/domain/enums/mobile_networks.dart';
+import 'package:telecom_project/features/core/data/models/enums/mobile_networks.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
@@ -41,7 +39,7 @@ class _MobileScreen extends State<MobileScreen> {
             Gap(24.h),
             Column(
               children: [
-                const MainTextFormComponent(
+                const AppTextForm(
                   title: 'الرقم',
                   hintText: 'أدخل الرقم أو الكود',
                 ),
@@ -54,7 +52,7 @@ class _MobileScreen extends State<MobileScreen> {
                   ),
                 ),
                 Gap(24.h),
-                MainTextFormComponent(
+                AppTextForm(
                   title: 'الكمية',
                   hintText: 'أدخل الكمية',
                   readOnly: true,
@@ -70,7 +68,7 @@ class _MobileScreen extends State<MobileScreen> {
                   },
                 ),
                 Gap(24.h),
-                MainButton(
+                AppButton(
                   width: double.infinity,
                   onPressd: () {},
                   lable: 'إرسال الطلب',

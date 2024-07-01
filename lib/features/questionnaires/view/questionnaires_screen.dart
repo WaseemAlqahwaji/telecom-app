@@ -98,7 +98,7 @@ class _QuestionnairesScreenState extends State<QuestionnairesScreen> {
                                 "المزود : السورية للاتصالات",
                               ),
                             ),
-                            MainButton(
+                            AppButton(
                               onPressd: () {},
                               lable: "دفع",
                             ),

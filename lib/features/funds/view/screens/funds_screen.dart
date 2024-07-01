@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:telecom_project/features/core/domain/enums/mobile_networks.dart';
+import 'package:telecom_project/features/core/data/models/enums/mobile_networks.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
-import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_containers.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_row.dart';
-import 'package:telecom_project/features/funds/domain/enums/operation.dart';
+import 'package:telecom_project/features/funds/data/models/enums/operation.dart';
 import 'package:tuple/tuple.dart';
 
 class FundsScreen extends StatefulWidget {
@@ -38,12 +37,12 @@ class _FundsScreenState extends State<FundsScreen> {
                 ),
               ),
               Gap(30.0.h),
-              const MainTextFormComponent(
+              const AppTextForm(
                 title: "الرقم : ",
                 hintText: "أدخل الرقم أو الكود",
               ),
               Gap(18.0.h),
-              const MainTextFormComponent(
+              const AppTextForm(
                 title: "الكود : ",
                 hintText: "أدخل الكود",
               ),
@@ -58,12 +57,12 @@ class _FundsScreenState extends State<FundsScreen> {
                 ),
               ),
               Gap(24.h),
-              const MainTextFormComponent(
+              const AppTextForm(
                 title: "المبلغ : ",
                 hintText: "أدخل الكمية",
               ),
               Gap(32.0.h),
-              MainButton(
+              AppButton(
                 onPressd: () {},
                 height: 56.h,
                 width: double.infinity,

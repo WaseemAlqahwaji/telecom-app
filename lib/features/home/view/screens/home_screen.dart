@@ -54,7 +54,7 @@ class HomeScreenState extends State<HomeScreen> {
               categoryDetails: categoryData.sublist(9, 11),
             ),
             const Spacer(),
-            MainButton(
+            AppButton(
               height: 56.h,
               width: double.infinity,
               onPressd: () {

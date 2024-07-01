@@ -38,12 +38,12 @@ class ConfirmDialog extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                MainButton(
+                AppButton(
                   onPressd: onTapConfirm,
                   lable: confirmTitle,
                   isBackGroungWhite: true,
                 ),
-                MainButton(
+                AppButton(
                   onPressd: onTapCancel,
                   lable: cancelTitle,
                 ),

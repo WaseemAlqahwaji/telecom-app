@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:telecom_project/config/theming/text_style.dart';
 import 'package:telecom_project/features/core/view/widgets/dropdown_widget.dart';
 
-class MainTextFormComponent extends StatefulWidget {
+class AppTextForm extends StatefulWidget {
   final String title;
   final String? hintText;
   final bool? isDropDown;
@@ -13,7 +13,7 @@ class MainTextFormComponent extends StatefulWidget {
   final TextDirection? textDirection;
   final void Function()? onTap;
   final bool readOnly;
-  const MainTextFormComponent({
+  const AppTextForm({
     super.key,
     required this.title,
     this.hintText,
@@ -25,10 +25,10 @@ class MainTextFormComponent extends StatefulWidget {
   });
 
   @override
-  State<MainTextFormComponent> createState() => _MainTextFormComponentState();
+  State<AppTextForm> createState() => _AppTextFormState();
 }
 
-class _MainTextFormComponentState extends State<MainTextFormComponent> {
+class _AppTextFormState extends State<AppTextForm> {
   @override
   Widget build(BuildContext context) {
     return Column(

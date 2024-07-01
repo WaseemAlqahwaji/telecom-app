@@ -21,44 +21,44 @@ class _ElectricScreenState extends State<ElectricScreen> {
         padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         child: ScrollColumnExpandable(
           children: [
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "الرقم الخاص (المميز) :",
               hintText: "أدخل الرقم",
             ),
             Gap(24.h),
-            MainTextFormComponent(
+            AppTextForm(
               title: "المحافظة : ",
               hintText: "اختر المحافظة",
               dropDownList: citiesName,
               isDropDown: true,
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "رقم الاشتراك",
               hintText: "أدخل رقم الاشتراك",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "اسم المشترك :",
               hintText: "ادخل اسم الزبون",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "المبلغ : ",
               hintText: "أدخل المبلغ",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "ملاحظات",
             ),
             Gap(32.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "استعلام",
             ),
             Gap(14.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "دفع",

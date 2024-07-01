@@ -2,14 +2,14 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:telecom_project/config/theming/theme.dart';
 
-class MainButton extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final void Function() onPressd;
   final String lable;
   final double? width;
   final double? height;
   final bool? isBackGroungWhite;
   final bool fitBox;
-  const MainButton({
+  const AppButton({
     super.key,
     required this.onPressd,
     this.width,

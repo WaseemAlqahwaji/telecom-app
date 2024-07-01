@@ -1,4 +1,3 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/config/helpers/hex_color.dart';
@@ -163,7 +162,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
       padding: EdgeInsets.symmetric(horizontal: 30.w),
       child: Column(
         children: [
-          const MainTextFormComponent(
+          const AppTextForm(
             title: 'أدخل ال ID:',
             hintText: 'أدخل ID الحساب في اللعبة او التطبيق',
             textDirection: TextDirection.ltr,
@@ -174,7 +173,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Expanded(
-                child: MainTextFormComponent(
+                child: AppTextForm(
                   title: 'عدد العملات :',
                   hintText: 'أدخل عدد العملات',
                   textDirection: TextDirection.ltr,
@@ -184,7 +183,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
               Image.asset('assets/images/Vector.png'),
               Gap(10.h),
               const Expanded(
-                child: MainTextFormComponent(
+                child: AppTextForm(
                   title: 'المبلغ :',
                   hintText: 'السعر / القيمة',
                   textDirection: TextDirection.ltr,
@@ -200,7 +199,7 @@ class _AppGemScreenState extends State<AppGemScreen> {
   Padding _sendRequestButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-      child: MainButton(
+      child: AppButton(
         onPressd: () {},
         lable: "إرسال الطلب",
         width: double.infinity,

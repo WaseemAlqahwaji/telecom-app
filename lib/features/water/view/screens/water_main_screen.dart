@@ -21,44 +21,44 @@ class _WaterScreen extends State<WaterScreen> {
         padding: EdgeInsets.symmetric(horizontal: 30.0.w),
         child: ScrollColumnExpandable(
           children: [
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "رقم المفتاح مع الشرطات (-) :",
               hintText: "أدخل الرقم او الكود",
             ),
             Gap(24.h),
-            MainTextFormComponent(
+            AppTextForm(
               title: "المحافظة : ",
               hintText: "اختر المحافظة",
               dropDownList: citiesName,
               isDropDown: true,
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "رقم الباركود :",
               hintText: "ادخل رقم الباركود",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "اسم المشترك :",
               hintText: "ادخل اسم الزبون",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "المبلغ : ",
               hintText: "أدخل المبلغ",
             ),
             Gap(24.h),
-            const MainTextFormComponent(
+            const AppTextForm(
               title: "ملاحظات",
             ),
             Gap(32.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "استعلام",
             ),
             Gap(14.h),
-            MainButton(
+            AppButton(
               width: double.infinity,
               onPressd: () {},
               lable: "دفع",

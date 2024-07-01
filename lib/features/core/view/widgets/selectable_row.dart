@@ -37,7 +37,7 @@ class _SelectableRowState extends State<SelectableRow> {
           padding: (index == widget.datalist.length)
               ? EdgeInsets.zero
               : EdgeInsetsDirectional.only(end: 14.0.w),
-          child: MainButton(
+          child: AppButton(
             width: 113.w,
             height: 49.h,
             fitBox: true,
