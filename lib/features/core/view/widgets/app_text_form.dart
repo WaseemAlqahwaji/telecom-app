@@ -13,6 +13,7 @@ class AppTextForm extends StatefulWidget {
   final TextDirection? textDirection;
   final void Function()? onTap;
   final bool readOnly;
+  final TextEditingController? controller;
   const AppTextForm({
     super.key,
     required this.title,
@@ -22,6 +23,7 @@ class AppTextForm extends StatefulWidget {
     this.textDirection,
     this.onTap,
     this.readOnly = false,
+    this.controller,
   });
 
   @override

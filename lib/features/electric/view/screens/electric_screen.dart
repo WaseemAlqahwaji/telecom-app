@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/main_button.dart';
-import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
+import 'package:telecom_project/features/core/view/widgets/app_text_form.dart';
 import 'package:telecom_project/features/core/view/widgets/scrollable_column.dart';
 
 class ElectricScreen extends StatefulWidget {
