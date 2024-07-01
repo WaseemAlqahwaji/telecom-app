@@ -6,7 +6,7 @@ import 'package:telecom_project/features/core/view/widgets/main_button.dart';
 import 'package:telecom_project/features/core/view/widgets/main_text_form_component.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_containers.dart';
-import 'package:telecom_project/features/mobile/domain/opration_type.dart';
+import 'package:telecom_project/features/mobile/data/models/enums/opration_type.dart';
 import 'package:telecom_project/features/core/view/widgets/selectable_row.dart';
 import 'package:telecom_project/features/mobile/views/widgets/quantity_dialog.dart';
 import 'package:tuple/tuple.dart';
