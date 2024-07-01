@@ -5,7 +5,7 @@ import 'package:telecom_project/config/helpers/date_format.dart';
 import 'package:telecom_project/features/core/view/screens/core_screen.dart';
 import 'package:telecom_project/features/core/view/widgets/date_element.dart';
 import 'package:telecom_project/features/core/view/widgets/date_picker.dart';
-import 'package:telecom_project/features/core/view/widgets/expandable_widget.dart';
+import 'package:telecom_project/features/financial/view/widgets/financial_transiction_item.dart';
 
 class FinancialScreen extends StatefulWidget {
   const FinancialScreen({super.key});
@@ -66,9 +66,8 @@ class _FinancialScreenState extends State<FinancialScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: ListView.separated(
-                itemBuilder: (context, index) => ExpandableWidget.regular(
-                  icon: Icons.arrow_upward_outlined,
-                  iconColor: Colors.green,
+                itemBuilder: (context, index) => FinancialTransictionItem(
+                  index: index,
                 ),
                 separatorBuilder: (context, index) => Gap(8.h),
                 itemCount: 5,

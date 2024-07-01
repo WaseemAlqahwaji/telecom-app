@@ -73,7 +73,9 @@ flutter:
       fonts:
         - asset: assets/fonts/Cairo-Regular.ttf
 
-
+    - family: TelecomAppIcons
+      fonts:
+        - asset: assets/icons/TelecomAppIcons.ttf
 
 
 
